@@ -2,24 +2,25 @@
 #include "InitSock.h"
 #include <iostream>
 
+#define server 1
+#define client 2
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-	int a = 0; 
-	int i = 0; 
-	int n = 0;
+	int select_s_c = 0; 
+	int num = 0; 
 
-	for (i = 0; i < 3; i++) {
+	for (num = 0; num < 3; num++) {
 		cout << "start\n1:serve        2:client\n" << endl;
 		cout << "please input:" << endl;
-		scanf_s("%d", &a);
+		scanf_s("%d", &select_s_c);
 
-		if (a == 1) {
+		if (select_s_c == server) {
 			cout << "send message please choose:1     send file please choose:2" << endl;
 			main_s();
 		}
-		else if (a == 2) {
+		else if (select_s_c == client) {
 			main_c();
 		}
 	}

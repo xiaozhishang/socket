@@ -1,7 +1,8 @@
-//#include "InitSock.h"   
-#include <stdio.h>   
+//#include "InitSock.h"
+#include <stdio.h>
 #include <iostream>
-#include <windows.h> 
+#include <windows.h>
+
 using namespace std;
 
 char szText[256];
@@ -15,6 +16,7 @@ DWORD WINAPI tprocess3(LPVOID lpParam)
         ::send(s, szText, strlen(szText), 0);
     }
 }
+
 int main_c()
 {
     DWORD dwThread;

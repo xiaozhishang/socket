@@ -1,7 +1,8 @@
-//#include "InitSock.h"   
-#include <stdio.h>   
+//#include "InitSock.h"
+#include <stdio.h>
 #include <iostream>
-#include <windows.h> 
+#include <windows.h>
+
 using namespace std;
 
 SOCKET sClient;
