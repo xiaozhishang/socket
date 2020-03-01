@@ -6,7 +6,7 @@
 int main_c();
 int main_s();
 
-#pragma comment(lib, "WS2_32")  // Á´½Óµ½WS2_32.lib 
+#pragma comment(lib, "WS2_32")  // ï¿½ï¿½ï¿½Óµï¿½WS2_32.lib 
 #ifdef _InitSock
 #endif  
 
@@ -15,16 +15,17 @@ class CInitSock
 public:
     CInitSock(BYTE minorVer = 2, BYTE majorVer = 2)
     {
-        // ³õÊ¼»¯WS2_32.dll   
+        // ï¿½ï¿½Ê¼ï¿½ï¿½WS2_32.dll   
         WSADATA wsaData;
         WORD sockVersion = MAKEWORD(minorVer, majorVer);
         if (::WSAStartup(sockVersion, &wsaData) != 0) {
             exit(0);
         }
     }
+    
     ~CInitSock()
     {
         ::WSACleanup();
     }
 };
-CInitSock initSock;     // ³õÊ¼»¯Winsock¿â  
+CInitSock initSock;     // ï¿½ï¿½Ê¼ï¿½ï¿½Winsockï¿½ï¿½  
