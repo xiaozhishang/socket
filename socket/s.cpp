@@ -8,12 +8,10 @@ SOCKET sClient;
 //void tprocess4(void* args)
 DWORD WINAPI tprocess4(LPVOID lpParam)
 {
-    while (TRUE)
-    {
+    while (TRUE) {
         char buff[256];
         int nRecv = ::recv(sClient, buff, 256, 0);
-        if (nRecv > 0)
-        {
+        if (nRecv > 0) {
             buff[nRecv] = '\0';
             printf(" 接收到数据：%s\n", buff);
         }
@@ -27,8 +25,7 @@ int main_s()
     //用来指定套接字使用的地址格式，通常使用AF_INET  
     //指定套接字的类型，若是SOCK_DGRAM，则用的是udp不可靠传输  
     //配合type参数使用，指定使用的协议类型（当指定套接字类型后，可以设置为0，因为默认为UDP或TCP）  
-    if (sListen == INVALID_SOCKET)
-    {
+    if (sListen == INVALID_SOCKET) {
         printf("Failed socket() \n");
         return 0;
     }
@@ -48,8 +45,7 @@ int main_s()
     sin.sin_addr.S_un.S_addr = INADDR_ANY;
 
     // 绑定这个套节字到一个本地地址   
-    if (::bind(sListen, (LPSOCKADDR)&sin, sizeof(sin)) == SOCKET_ERROR)
-    {
+    if (::bind(sListen, (LPSOCKADDR)&sin, sizeof(sin)) == SOCKET_ERROR) {
         printf("Failed bind() \n");
         return 0;
     }
@@ -57,8 +53,7 @@ int main_s()
     // 进入监听模式   
     //2指的是，监听队列中允许保持的尚未处理的最大连接数  
 
-    if (::listen(sListen, 2) == SOCKET_ERROR)
-    {
+    if (::listen(sListen, 2) == SOCKET_ERROR) {
         printf("Failed listen() \n");
         return 0;
     }
@@ -69,23 +64,20 @@ int main_s()
 
     //SOCKET sClient = 0;   
     char szText[] = " TCP Server Demo! \r\n";
-    while (sClient == 0)
-    {
+    while (sClient == 0) {
         // 接受一个新连接   
         //（(SOCKADDR*)&remoteAddr）一个指向sockaddr_in结构的指针，用于获取对方地址  
         sClient = ::accept(sListen, (SOCKADDR*)&remoteAddr, &nAddrLen);
-        if (sClient == INVALID_SOCKET)
-        {
+        if (sClient == INVALID_SOCKET) {
             printf("Failed accept()");
         }
-
 
         printf("接受到一个连接：%s \r\n", inet_ntoa(remoteAddr.sin_addr));
         continue;
     }
     CreateThread(NULL, 0, tprocess4, NULL, 0, &dwThread);
-    while (TRUE)
-    {   //cout<<"send message please choose:1     send file please choose:2"<<endl;
+    while (TRUE) {   
+        //cout<<"send message please choose:1     send file please choose:2"<<endl;
         // 向客户端发送数据   
         gets_s(szText);
         ::send(sClient, szText, strlen(szText), 0);

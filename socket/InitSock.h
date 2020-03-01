@@ -1,8 +1,8 @@
-#pragma once
 #include <winsock2.h>   
 #include <stdlib.h>    
 #include <conio.h>    
 #include <stdio.h>    
+
 int main_c();
 int main_s();
 
@@ -18,8 +18,7 @@ public:
         // ≥ı ºªØWS2_32.dll   
         WSADATA wsaData;
         WORD sockVersion = MAKEWORD(minorVer, majorVer);
-        if (::WSAStartup(sockVersion, &wsaData) != 0)
-        {
+        if (::WSAStartup(sockVersion, &wsaData) != 0) {
             exit(0);
         }
     }

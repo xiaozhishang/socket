@@ -6,10 +6,10 @@ using namespace std;
 
 char szText[256];
 SOCKET s;
+
 DWORD WINAPI tprocess3(LPVOID lpParam)
 {
-    while (TRUE)
-    {
+    while (TRUE) {
         gets_s(szText);
         //szText[255] = '\0';   
         ::send(s, szText, strlen(szText), 0);
@@ -20,8 +20,7 @@ int main_c()
     DWORD dwThread;
     // 创建套节字   
     s = ::socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-    if (s == INVALID_SOCKET)
-    {
+    if (s == INVALID_SOCKET) {
         printf(" Failed socket() \n");
         return 0;
     }
@@ -37,8 +36,7 @@ int main_c()
     // 如果你的计算机没有联网，直接使用127.0.0.1即可   
     servAddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
 
-    if (::connect(s, (sockaddr*)&servAddr, sizeof(servAddr)) == -1)
-    {
+    if (::connect(s, (sockaddr*)&servAddr, sizeof(servAddr)) == -1) {
         printf(" Failed connect() \n");
         return 0;
     }
@@ -46,8 +44,7 @@ int main_c()
     char buff[256];
     //char szText[256] ;   
     CreateThread(NULL, 0, tprocess3, NULL, 0, &dwThread);
-    while (TRUE)
-    {
+    while (TRUE) {
         //从服务器端接收数据   
         int nRecv = ::recv(s, buff, 256, 0);
         if (nRecv > 0)
