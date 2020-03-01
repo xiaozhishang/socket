@@ -23,7 +23,7 @@ public:
             exit(0);
         }
     }
-
+    
     ~CInitSock()
     {
         ::WSACleanup();
