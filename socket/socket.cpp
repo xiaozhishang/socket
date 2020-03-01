@@ -1,5 +1,5 @@
-﻿#include<stdio.h>
-#include"InitSock.h"
+﻿#include <stdio.h>
+#include "InitSock.h"
 #include <iostream>
 
 using namespace std;
