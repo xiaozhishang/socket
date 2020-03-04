@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 	int num = 0; 
 
 	for (num = 0; num < 3; num++) {
-		cout << "start\n1:serve        2:client\n" << endl;
+		cout << "start\n1:serve       2:client\n" << endl;
 		cout << "please input:" << endl;
 		scanf_s("%d", &select_s_c);
 
