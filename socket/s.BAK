@@ -76,7 +76,6 @@ int main_s()
         printf("接受到一个连接：%s \r\n", inet_ntoa(remoteAddr.sin_addr));
         continue;
     }
-
     CreateThread(NULL, 0, tprocess4, NULL, 0, &dwThread);
     while (TRUE) {   
         //cout<<"send message please choose:1     send file please choose:2"<<endl;
