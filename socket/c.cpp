@@ -36,7 +36,7 @@ int main_c()
     servAddr.sin_port = htons(4567);
     // 注意，这里要填写服务器程序（TCPServer程序）所在机器的IP地址   
     // 如果你的计算机没有联网，直接使用127.0.0.1即可   
-    servAddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
+    servAddr.sin_addr.S_un.S_addr = inet_addr("192.168.50.54");
 
     if (::connect(s, (sockaddr*)&servAddr, sizeof(servAddr)) == -1) {
         printf(" Failed connect() \n");
@@ -52,7 +52,7 @@ int main_c()
         if (nRecv > 0)
         {
             buff[nRecv] = '\0';
-            printf("接收到数据：%s\n", buff);
+            printf("receive data: %s\n", buff);
         }
 
         // 向服务器端发送数据   

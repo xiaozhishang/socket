@@ -14,7 +14,7 @@ DWORD WINAPI tprocess4(LPVOID lpParam)
         int nRecv = ::recv(sClient, buff, 256, 0);
         if (nRecv > 0) {
             buff[nRecv] = '\0';
-            printf(" 接收到数据：%s\n", buff);
+            printf("receive data: %s\n", buff);
         }
     }
 }
@@ -73,7 +73,7 @@ int main_s()
             printf("Failed accept()");
         }
 
-        printf("接受到一个连接：%s \r\n", inet_ntoa(remoteAddr.sin_addr));
+        printf("receive connection: %s \r\n", inet_ntoa(remoteAddr.sin_addr));
         continue;
     }
 
