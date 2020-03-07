@@ -10,7 +10,15 @@ SOCKET s;
 
 DWORD WINAPI tprocess3(LPVOID lpParam)
 {
+    static int num = 1;
     while (TRUE) {
+        if (num == 1) {
+            num = 2;
+            /* code */
+        } else {
+            cout<<"send data: ";
+        }
+        
         gets_s(szText);
         //szText[255] = '\0';   
         ::send(s, szText, strlen(szText), 0);

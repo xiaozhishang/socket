@@ -81,6 +81,7 @@ int main_s()
     while (TRUE) {   
         //cout<<"send message please choose:1     send file please choose:2"<<endl;
         // 向客户端发送数据   
+        cout<<"send data: ";
         gets_s(szText);
         ::send(sClient, szText, strlen(szText), 0);
 

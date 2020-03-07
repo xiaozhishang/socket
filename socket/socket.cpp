@@ -17,10 +17,11 @@ int main(int argc, char* argv[])
 		scanf_s("%d", &select_s_c);
 
 		if (select_s_c == server) {
-			cout << "send message please choose:1     send file please choose:2" << endl;
+			cout << "choose server" << endl;
 			main_s();
 		}
 		else if (select_s_c == client) {
+			cout << "choose client" << endl;
 			main_c();
 		}
 	}
