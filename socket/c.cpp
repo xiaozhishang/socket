@@ -16,7 +16,7 @@ DWORD WINAPI tprocess3(LPVOID lpParam)
             num = 2;
             /* code */
         } else {
-            cout<<"send data: ";
+            cout<<"\nsend data: ";
         }
         
         gets_s(szText);
@@ -60,7 +60,7 @@ int main_c()
         if (nRecv > 0)
         {
             buff[nRecv] = '\0';
-            printf("receive data: %s\n", buff);
+            printf("\nreceive data: %s\n", buff);
         }
 
         // 向服务器端发送数据   

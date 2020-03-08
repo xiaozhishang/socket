@@ -14,10 +14,11 @@ DWORD WINAPI tprocess4(LPVOID lpParam)
         int nRecv = ::recv(sClient, buff, 256, 0);
         if (nRecv > 0) {
             buff[nRecv] = '\0';
-            printf("receive data: %s\n", buff);
+            printf("\nreceive data: %s\n", buff);
         }
     }
 }
+
 int main_s()
 {
     // 创建套节字
@@ -81,7 +82,7 @@ int main_s()
     while (TRUE) {   
         //cout<<"send message please choose:1     send file please choose:2"<<endl;
         // 向客户端发送数据   
-        cout<<"send data: ";
+        cout<<"\nsend data: ";
         gets_s(szText);
         ::send(sClient, szText, strlen(szText), 0);
 
